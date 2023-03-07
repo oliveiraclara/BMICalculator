@@ -1,5 +1,6 @@
 package br.senai.sp.jandira.bmicalculator
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.strictmode.CleartextNetworkViolation
 import android.util.Log
@@ -60,6 +61,7 @@ fun CalculatorScreen() {
     }
 
     val context = LocalContext.current.applicationContext
+    val context2 = LocalContext.current
 
 
     Surface(modifier = Modifier.fillMaxSize()) {
@@ -180,7 +182,10 @@ fun CalculatorScreen() {
                                 Text(text = stringResource(id = R.string.reset))
                             }
                             Spacer(modifier = Modifier.width(24.dp))
-                            Button(onClick = { /*TODO*/ }) {
+                            Button(onClick = {
+                                val openOther = Intent(context2, SignUpActivity::class.java)
+                                context2.startActivity(openOther)
+                            }) {
                                 Text(text = stringResource(id = R.string.share))
                             }
                         }
